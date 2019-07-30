@@ -31,7 +31,7 @@ function anagram(arr) {
   }
   
   hasil = [ ...new Set(hasil) ]
-  console.log(hasil)
+  console.log(hasil.join(", "))
   
 }
 
