@@ -1,15 +1,16 @@
 function saham(sah) {
   
-  let terbesar = Math.max(...sah)
+  
   let selisih = []
   let sel, maxProfit
+  let error = 0
   
-  if(sah[0] == terbesar) {
-    console.log("Tidak bisa membeli saham")
-  }
-  else {
     for(let i = 0; i < sah.length; i++) {
-    
+      
+      if(sah[i] > sah[i+1]) {
+        error += 1
+      }
+      
       for(let x = i+1; x < sah.length; x++) {
       
           if(sah[i] < sah[x]) {
@@ -20,14 +21,16 @@ function saham(sah) {
       }
     
     }
-    
-    maxProfit = Math.max(...selisih)
-    console.log(maxProfit)
-  }
   
+    if(error == sah.length - 1) {
+      console.log("Tidak dapat memebeli saham")
+    }
+    else {
+      maxProfit = Math.max(...selisih)
+      console.log(maxProfit)
+    }
   
 }
 
-let hargaSaham = [5, 6, 15, 3, 10, 22, 15]
+let hargaSaham = [100, 90, 80, 75, 65, 7, 0, 20]
 saham(hargaSaham)
-
